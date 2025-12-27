@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kopo.readingletter.mapper.LetterMapper">
+
+    <select id="selectMyLetters" parameterType="map" resultType="kopo.readingletter.dto.LetterDTO">
+        SELECT
+        id,
+        tag,
+        content,
+        is_public,
+        like_count,
+        view_count,
+        created_at
+        FROM letters
+        WHERE user_id = #{userId}
+
+        <if test="scope != null and scope != 'all'">
+            AND is_public =
+            <choose>
+                <when test="scope == 'public'">1</when>
+                <when test="scope == 'private'">0</when>
+            </choose>
+        </if>
+
+        ORDER BY created_at DESC
+    </select>
+
+    <select id="selectLetterDetail" resultType="kopo.readingletter.dto.LetterDTO">
+        SELECT
+            id, user_id, book_id, content, tag,
+            is_public, like_count, view_count, created_at
+        FROM letters
+        WHERE id = #{id}
+          AND user_id = #{userId}
+    </select>
+
+    <update id="updateViewCount">
+        UPDATE letters
+        SET view_count = view_count + 1
+        WHERE id = #{id}
+          AND user_id = #{userId}
+    </update>
+
+
+</mapper>

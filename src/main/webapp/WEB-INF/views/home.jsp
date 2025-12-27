@@ -17,7 +17,7 @@
         .container{
             max-width: 1280px;
             margin: 0 auto;
-            padding: 16px 24px;   /* 위아래 16, 좌우 24 */
+            padding: 100px 24px;   /* 위아래 16, 좌우 24 */
         }
 
         .grid { display:grid; grid-template-columns: 1.2fr 1fr; gap: 16px; margin-top: 16px; }
@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="actions" style="margin-top:12px;">
-                        <a class="btn" href="${pageContext.request.contextPath}/letters">📩 내 편지함</a>
+                        <a class="btn" href="${pageContext.request.contextPath}/letter/list">📩 내 편지함</a>
                         <a class="btn" href="${pageContext.request.contextPath}/recommend">🤖 AI 추천</a>
                     </div>
                 </div>

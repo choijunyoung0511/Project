@@ -115,7 +115,7 @@
             <span>${user.nickname}</span>
           </span>
 
-                    <a class="rl-btn" href="${pageContext.request.contextPath}/letters">내 편지함</a>
+                    <a class="rl-btn" href="${pageContext.request.contextPath}/letter/list">내 편지함</a>
                     <a class="rl-btn" href="${pageContext.request.contextPath}/books">내 책장</a>
                     <a class="rl-btn" href="${pageContext.request.contextPath}/timer">타이머</a>
                     <a class="rl-btn" href="${pageContext.request.contextPath}/ranking">TOP 5</a>
