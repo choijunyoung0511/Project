@@ -23,6 +23,8 @@
     <title>내 편지함</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
 
 <div class="container">
 

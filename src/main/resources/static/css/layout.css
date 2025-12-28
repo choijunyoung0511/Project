@@ -11,13 +11,6 @@ body{
     padding: 24px 16px;
 }
 
-/* 공통 컨테이너 */
-.container{
-    width:100%;
-    max-width: 1180px;
-    margin: 0 auto;
-}
-
 /* 공통 카드 */
 .card{
     border:1px solid var(--line);
@@ -35,3 +28,8 @@ body{
     margin: 0 0 14px;
 }
 .muted{ color: var(--muted); }
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 24px; /* 위 여백도 균일 */
+}

@@ -83,7 +83,7 @@
                     <p class="muted">오늘도 한 문장 남기고, 미래의 나에게 보내볼까요?</p>
 
                     <div class="actions">
-                        <a class="btn primary" href="${pageContext.request.contextPath}/letters/new">✍️ AI 편지 만들기</a>
+                        <a class="btn primary" href="${pageContext.request.contextPath}/letter/ai">✍️ AI 편지 만들기</a>
                         <a class="btn" href="${pageContext.request.contextPath}/books">📚 내 책장</a>
                         <a class="btn" href="${pageContext.request.contextPath}/timer">⏱️ 타이머</a>
                         <a class="btn" href="${pageContext.request.contextPath}/ranking">🏆 TOP 5</a>

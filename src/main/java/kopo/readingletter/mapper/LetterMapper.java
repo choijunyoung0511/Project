@@ -8,9 +8,18 @@ import java.util.List;
 
 @Mapper
 public interface LetterMapper {
+
     List<LetterDTO> selectMyLetters(@Param("userId") Long userId,
                                     @Param("scope") String scope);
-    LetterDTO selectLetterDetail(Long id, Long userId);
 
-    int updateViewCount(Long id, Long userId);
+    LetterDTO selectLetterDetail(@Param("id") Long id,
+                                 @Param("userId") Long userId);
+
+    int updateViewCount(@Param("id") Long id,
+                        @Param("userId") Long userId);
+
+    int insertLetter(LetterDTO dto);
+
+    List<LetterDTO> selectLettersByScope(@Param("userId") Long userId,
+                                         @Param("scope") String scope);
 }

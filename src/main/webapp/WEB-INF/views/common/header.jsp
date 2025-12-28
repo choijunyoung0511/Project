@@ -1,8 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="user" value="${sessionScope.loginUser}" />
+
 <style>
-    /* ✅ 상단바는 화면 전체 폭 */
     .rl-topbar {
         position: sticky;
         top: 0;
@@ -12,8 +13,6 @@
         backdrop-filter: blur(10px);
         border-bottom: 1px solid #e5e7eb;
     }
-
-    /* ✅ 상단바 안쪽 콘텐츠만 가운데 정렬 + 최대폭 */
     .rl-topbar-inner {
         max-width: 1280px;
         margin: 0 auto;
@@ -23,7 +22,6 @@
         justify-content: space-between;
         gap: 14px;
     }
-
     .rl-brand {
         display: flex;
         align-items: center;
@@ -32,7 +30,6 @@
         color: inherit;
         min-width: 0;
     }
-
     .rl-logo {
         width: 40px; height: 40px;
         border-radius: 14px;
@@ -42,7 +39,6 @@
         font-weight: 900;
         flex: 0 0 auto;
     }
-
     .rl-brand-text { min-width:0; }
     .rl-title { margin:0; font-size: 15px; font-weight: 900; line-height: 1.1; }
     .rl-sub { margin:0; font-size: 12px; color:#6b7280; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -54,7 +50,6 @@
         flex-wrap: wrap;
         justify-content: flex-end;
     }
-
     .rl-pill {
         display:inline-flex; align-items:center; gap:8px;
         padding: 8px 12px;
@@ -88,7 +83,6 @@
     .rl-danger { border-color:#fecaca; color:#b91c1c; background:#fff; }
     .rl-danger:hover { background:#fff5f5; }
 
-    /* 모바일에서는 메뉴 줄이기 */
     @media (max-width: 720px) {
         .rl-topbar-inner { padding: 12px 14px; }
         .rl-sub { display:none; }
@@ -112,7 +106,7 @@
                 <c:when test="${not empty user}">
           <span class="rl-pill">
             <span class="rl-dot"></span>
-            <span>${user.nickname}</span>
+            <span><c:out value="${user.nickname}"/></span>
           </span>
 
                     <a class="rl-btn" href="${pageContext.request.contextPath}/letter/list">내 편지함</a>
@@ -120,7 +114,7 @@
                     <a class="rl-btn" href="${pageContext.request.contextPath}/timer">타이머</a>
                     <a class="rl-btn" href="${pageContext.request.contextPath}/ranking">TOP 5</a>
 
-                    <a class="rl-btn rl-primary" href="${pageContext.request.contextPath}/letters/new">AI 편지 만들기</a>
+                    <a class="rl-btn rl-primary" href="${pageContext.request.contextPath}/letter/ai">AI 편지 만들기</a>
                     <a class="rl-btn rl-danger" href="${pageContext.request.contextPath}/auth/logout">로그아웃</a>
                 </c:when>
 

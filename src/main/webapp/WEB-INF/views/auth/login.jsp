@@ -8,14 +8,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인 | ReadingLetter</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/auth/auth.css">
 
-    <style>
-        /* JSP에서 WEB-INF 내부는 브라우저가 직접 접근 못함.
-           아래 주석 참고하고, 실제 배포는 /static 으로 옮기는 걸 추천! */
-    </style>
+    <!-- ✅ 공용(base) 먼저 -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/base.css">
+    <!-- ✅ 로그인 전용 -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/auth/auth.css">
 </head>
-<body>
+
+<!-- ✅ 로그인/회원가입만 다크 -->
+<body class="theme-dark">
 
 <div class="auth-wrap">
 
@@ -62,7 +63,7 @@
         </ul>
 
         <p class="mini">
-            테스트: 로그인 성공하면 세션에 <code>SS_USER_ID</code>, <code>SS_NICKNAME</code> 저장
+            로그인 성공 시 세션에 <code>loginUser</code> 저장
         </p>
     </section>
 
@@ -109,11 +110,5 @@
 
 </div>
 
-<!-- NOTE:
-  WEB-INF 경로의 CSS는 직접 링크가 안 먹을 수 있어.
-  가장 깔끔한 방법:
-  1) auth.css 를 src/main/resources/static/auth/auth.css 로 옮기고
-  2) <link rel="stylesheet" href="/auth/auth.css"> 로 바꿔.
--->
 </body>
 </html>

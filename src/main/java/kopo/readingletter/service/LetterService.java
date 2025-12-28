@@ -21,5 +21,8 @@ public class LetterService {
         letterMapper.updateViewCount(id, userId);   // ✅ 조회수 +1
         return letterMapper.selectLetterDetail(id, userId);
     }
+    public int insertLetter(LetterDTO dto) {
+        return letterMapper.insertLetter(dto);
+    }
 
 }

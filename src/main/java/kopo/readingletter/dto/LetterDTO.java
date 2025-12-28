@@ -14,4 +14,8 @@ public class LetterDTO {
     private Integer likeCount;
     private Integer viewCount;
     private LocalDateTime createdAt;
+    private String paperType;
+    private String writingStyle;
+    private Integer isAiGenerated; // tinyint → Integer 권장(혹은 boolean)
+    private String aiPrompt; //프롬프트
 }

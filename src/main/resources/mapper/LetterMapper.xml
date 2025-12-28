@@ -44,5 +44,43 @@
           AND user_id = #{userId}
     </update>
 
+    <insert id="insertLetter" parameterType="kopo.readingletter.dto.LetterDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO letters (
+            user_id, book_id, content, tag, is_public,
+            like_count, view_count,
+            paper_type, writing_style, is_ai_generated,
+            ai_prompt
+        )
+        VALUES (
+                   #{userId}, #{bookId}, #{content}, #{tag}, #{isPublic},
+                   0, 0,
+                   #{paperType}, #{writingStyle}, #{isAiGenerated},
+                   #{aiPrompt}
+               )
+    </insert>
+
+    <select id="selectLettersByScope" parameterType="map" resultType="kopo.readingletter.dto.LetterDTO">
+        SELECT
+        id, user_id, book_id, content, tag,
+        is_public, like_count, view_count,
+        paper_type, writing_style, is_ai_generated,
+        ai_prompt,
+        created_at
+        FROM letters
+        WHERE user_id = #{userId}
+        <if test="scope != null and scope != 'all'">
+            <choose>
+                <when test="scope == 'public'">
+                    AND is_public = 1
+                </when>
+                <otherwise>
+                    AND is_public = 0
+                </otherwise>
+            </choose>
+        </if>
+        ORDER BY id DESC
+    </select>
+
+
 
 </mapper>

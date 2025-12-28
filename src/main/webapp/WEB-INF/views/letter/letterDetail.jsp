@@ -15,6 +15,8 @@
     <title>편지 상세</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+
 
 <div class="container">
     <h2 class="page-title">편지 상세</h2>
