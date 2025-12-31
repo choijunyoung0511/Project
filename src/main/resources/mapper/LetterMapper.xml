@@ -30,8 +30,11 @@
 
     <select id="selectLetterDetail" resultType="kopo.readingletter.dto.LetterDTO">
         SELECT
-            id, user_id, book_id, content, tag,
-            is_public, like_count, view_count, created_at
+            id, user_id AS userId, book_id AS bookId, content, tag,
+            is_public AS isPublic, like_count AS likeCount, view_count AS viewCount,
+            paper_type AS paperType, writing_style AS writingStyle, is_ai_generated AS isAiGenerated,
+            ai_prompt AS aiPrompt,
+            created_at AS createdAt
         FROM letters
         WHERE id = #{id}
           AND user_id = #{userId}
@@ -80,6 +83,18 @@
         </if>
         ORDER BY id DESC
     </select>
+
+
+    <select id="selectDistinctTagsByUserId" parameterType="long" resultType="string">
+        SELECT DISTINCT tag
+        FROM letters
+        WHERE user_id = #{userId}
+        AND tag IS NOT NULL
+        AND tag != ''
+        ORDER BY tag ASC
+    </select>
+
+
 
 
 

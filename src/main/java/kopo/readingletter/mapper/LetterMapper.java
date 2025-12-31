@@ -22,4 +22,6 @@ public interface LetterMapper {
 
     List<LetterDTO> selectLettersByScope(@Param("userId") Long userId,
                                          @Param("scope") String scope);
+
+    List<String> selectDistinctTagsByUserId(Long userId);
 }

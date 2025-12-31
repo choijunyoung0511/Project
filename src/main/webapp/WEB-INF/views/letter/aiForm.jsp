@@ -82,21 +82,51 @@
         <input type="text" name="tag" maxlength="50" placeholder="예: 비공개 테스트" required />
 
         <label>공개 여부</label>
-        <select name="isPublic">
+        <select name="isPublic" required>
             <option value="0">비공개</option>
             <option value="1">공개</option>
         </select>
 
         <label>편지지 선택</label>
-        <select name="paperType">
-            <option value="BASIC">BASIC (기본)</option>
-            <option value="VINTAGE">VINTAGE (감성)</option>
-            <option value="PASTEL">PASTEL (파스텔)</option>
-            <option value="MINIMAL">MINIMAL (미니멀)</option>
+        <select name="paperType" id="paperTypeSelect" required>
+
+            <optgroup label="기본">
+                <option value="BASIC">BASIC (기본)</option>
+                <option value="MINIMAL">MINIMAL (미니멀)</option>
+                <option value="PASTEL">PASTEL (파스텔)</option>
+                <option value="VINTAGE">VINTAGE (감성)</option>
+                <option value="DARK">DARK (다크)</option>
+            </optgroup>
+
+            <optgroup label="계절">
+                <option value="SPRING">SPRING (봄)</option>
+                <option value="SUMMER">SUMMER (여름)</option>
+                <option value="AUTUMN">AUTUMN (가을)</option>
+                <option value="WINTER">WINTER (겨울)</option>
+            </optgroup>
+
+            <optgroup label="이벤트">
+                <option value="CHRISTMAS">CHRISTMAS (크리스마스)</option>
+                <option value="NEWYEAR">NEWYEAR (새해)</option>
+                <option value="BIRTHDAY">BIRTHDAY (생일)</option>
+                <option value="ANNIVERSARY">ANNIVERSARY (기념일)</option>
+                <option value="GRADUATION">GRADUATION (졸업)</option>
+                <option value="THANKYOU">THANKYOU (감사)</option>
+            </optgroup>
+
+            <optgroup label="노트/문구">
+                <option value="NOTE">NOTE (노트지)</option>
+                <option value="GRID">GRID (그리드)</option>
+                <option value="MEMO">MEMO (메모지)</option>
+                <option value="DIARY">DIARY (일기장)</option>
+                <option value="LETTERPAD">LETTERPAD (편지지)</option>
+            </optgroup>
+
         </select>
 
+        <!-- ✅ 추가: writingStyle (컨트롤러가 필수로 받는 파라미터) -->
         <label>편지 문체(스타일)</label>
-        <select name="writingStyle">
+        <select name="writingStyle" required>
             <option value="CASUAL">CASUAL (친근)</option>
             <option value="FORMAL">FORMAL (정중)</option>
             <option value="EMOTIONAL">EMOTIONAL (감성)</option>
@@ -134,14 +164,10 @@
                 return;
             }
 
-            // ✅ 기본 required 검증 통과 후 로딩 ON
-            // (브라우저가 required 체크를 하고 submit이 들어옴)
             submitting = true;
             setLoading(true);
 
-            // ✅ 혹시 서버가 에러나서 뒤로가기/이탈할 때 대비: 2분 후 자동 해제(안전장치)
             setTimeout(() => {
-                // 페이지 이동이 안 되었을 때만 해제
                 if (document.body.contains(overlay)) {
                     submitting = false;
                     setLoading(false);
@@ -149,7 +175,6 @@
             }, 120000);
         });
 
-        // ✅ 뒤로가기(bfcache)로 돌아왔을 때 로딩 남아있으면 끄기
         window.addEventListener('pageshow', () => {
             submitting = false;
             setLoading(false);

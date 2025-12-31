@@ -1,5 +1,5 @@
 package kopo.readingletter.controller;
-
+import java.util.List;
 import jakarta.servlet.http.HttpSession;
 import kopo.readingletter.dto.LetterDTO;
 import kopo.readingletter.dto.UserDTO;
@@ -33,7 +33,6 @@ public class AiLetterController {
         return "letter/aiForm";
     }
 
-    // 2) AI 생성
     @PostMapping("/ai/generate")
     public String generate(
             @RequestParam String tag,
@@ -45,25 +44,26 @@ public class AiLetterController {
             HttpSession session
     ) {
         UserDTO user = (UserDTO) session.getAttribute(SESSION_KEY);
-        if (user == null) {
-            return "redirect:/auth/login";
-        }
+        if (user == null) return "redirect:/auth/login";
+
+        long userId = user.getId();
+
+        // ✅ tagList 주입 (내 태그들)
+        List<String> tagList = letterService.getMyTags(userId);
+        model.addAttribute("tagList", tagList);
 
         String generatedContent;
         try {
             generatedContent = aiLetterService.generateLetter(prompt, writingStyle);
         } catch (Exception e) {
-            // ✅ 실패해도 화면은 유지 + 사용자에게 메시지
             model.addAttribute("tag", tag);
             model.addAttribute("isPublic", isPublic);
             model.addAttribute("paperType", paperType);
             model.addAttribute("writingStyle", writingStyle);
             model.addAttribute("aiPrompt", prompt);
-
             model.addAttribute("generatedContent", "");
             model.addAttribute("errorMsg", "AI 생성 실패: " + e.getMessage());
-
-            return "letter/aiResult"; // 또는 "letter/aiForm"으로 보내도 됨
+            return "letter/aiResult";
         }
 
         model.addAttribute("tag", tag);

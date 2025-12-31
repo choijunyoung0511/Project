@@ -21,8 +21,13 @@ public class LetterService {
         letterMapper.updateViewCount(id, userId);   // ✅ 조회수 +1
         return letterMapper.selectLetterDetail(id, userId);
     }
+
     public int insertLetter(LetterDTO dto) {
         return letterMapper.insertLetter(dto);
     }
 
+    // ✅ 여기만 구현해주면 끝
+    public List<String> getMyTags(Long userId) {
+        return letterMapper.selectDistinctTagsByUserId(userId);
+    }
 }

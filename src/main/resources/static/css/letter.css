@@ -34,4 +34,252 @@
     background: linear-gradient(135deg, var(--brand), #3b82f6);
     border-color: transparent;
 }
+.paper{
+    border-radius:16px;
+    padding:18px;
+    border:1px solid rgba(0,0,0,.08);
+    box-shadow:0 12px 36px rgba(0,0,0,.08);
+    margin-top:8px;
+    white-space:pre-wrap;
+}
+.paper-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+.paper-tag{ font-weight:700; }
+.paper-content{
+    margin:0;
+    font-family:inherit;
+    line-height:1.65;
+}
+
+/* 테마 */
+.paper-BASIC{
+    background:#ffffff;
+}
+.paper-VINTAGE{
+    background:linear-gradient(180deg, #fbf3df, #f7ecd0);
+    border-color:rgba(120,80,30,.18);
+}
+.paper-PASTEL{
+    background:linear-gradient(180deg, #f2f7ff, #fff4fb);
+    border-color:rgba(80,120,255,.14);
+}
+.paper-MINIMAL{
+    background:#f6f7f9;
+    border-color:rgba(0,0,0,.10);
+}
+
+/* ===== 추가 테마 16개 (기존 4개+ -> 총 20개) ===== */
+
+/* 기본 - DARK */
+.paper-DARK{
+    background:
+            radial-gradient(900px 420px at 20% 10%, rgba(124,58,237,.18), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(34,197,94,.10), transparent 55%),
+            linear-gradient(180deg,#0b1220,#111827);
+    --paper-text:#f3f4f6;
+    --paper-line: rgba(255,255,255,.10);
+    --paper-border: rgba(255,255,255,.12);
+}
+
+/* 계절 */
+.paper-SPRING{
+    background:
+            radial-gradient(900px 420px at 10% 10%, rgba(34,197,94,.16), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(248,113,113,.12), transparent 55%),
+            linear-gradient(180deg,#f0fff4,#ffffff);
+}
+.paper-SUMMER{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(59,130,246,.18), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(34,211,238,.14), transparent 55%),
+            linear-gradient(180deg,#e0f2fe,#ffffff);
+}
+.paper-AUTUMN{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(245,158,11,.18), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(239,68,68,.12), transparent 55%),
+            linear-gradient(180deg,#fff7ed,#ffffff);
+}
+.paper-WINTER{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(148,163,184,.20), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(59,130,246,.10), transparent 55%),
+            linear-gradient(180deg,#f8fafc,#ffffff);
+}
+
+/* 이벤트 */
+.paper-CHRISTMAS{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(34,197,94,.22), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(239,68,68,.18), transparent 55%),
+            linear-gradient(180deg,#fff,#f1fff6);
+}
+.paper-NEWYEAR{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(250,204,21,.22), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(168,85,247,.12), transparent 55%),
+            linear-gradient(180deg,#fffdf2,#ffffff);
+}
+.paper-BIRTHDAY{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(253,164,175,.22), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(147,197,253,.20), transparent 55%),
+            linear-gradient(180deg,#fff5f7,#ffffff);
+}
+.paper-ANNIVERSARY{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(244,114,182,.20), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(251,113,133,.16), transparent 55%),
+            linear-gradient(180deg,#fff1f5,#ffffff);
+}
+.paper-GRADUATION{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(234,179,8,.18), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(15,23,42,.08), transparent 55%),
+            linear-gradient(180deg,#fffaf0,#ffffff);
+}
+.paper-THANKYOU{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(34,197,94,.14), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(245,158,11,.12), transparent 55%),
+            linear-gradient(180deg,#fff7ed,#ffffff);
+}
+
+/* 노트/문구 */
+.paper-NOTE{
+    background:
+            linear-gradient(180deg,#ffffff,#fbfbfd);
+    --paper-line: rgba(15,23,42,.12);
+}
+.paper-GRID{
+    background:
+            linear-gradient(180deg,#ffffff,#fbfbfd);
+    background-image:
+            repeating-linear-gradient(to right, rgba(15,23,42,.10) 0, rgba(15,23,42,.10) 1px, transparent 1px, transparent 24px),
+            repeating-linear-gradient(to bottom, rgba(15,23,42,.10) 0, rgba(15,23,42,.10) 1px, transparent 1px, transparent 24px);
+    background-attachment: local;
+}
+.paper-MEMO{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(250,204,21,.22), transparent 60%),
+            linear-gradient(180deg,#fff7c2,#fffdf2);
+}
+.paper-DIARY{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(236,72,153,.08), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(99,102,241,.08), transparent 55%),
+            linear-gradient(180deg,#fff,#fbfbff);
+}
+.paper-LETTERPAD{
+    background:
+            radial-gradient(900px 420px at 12% 10%, rgba(34,211,238,.10), transparent 60%),
+            radial-gradient(700px 360px at 90% 18%, rgba(244,114,182,.10), transparent 55%),
+            linear-gradient(180deg,#ffffff,#f7fbff);
+}
+/* =========================
+   ✅ 미리보기(종이) 공통 세트 (AI결과/상세 공용)
+========================= */
+:root{
+    --paper-radius: 18px;
+    --paper-shadow: 0 18px 60px rgba(0,0,0,.12);
+    --paper-line: rgba(16,24,40,.12);
+    --paper-text: #121926;
+    --paper-border: rgba(16,24,40,.14);
+    --paper-gap: 26px;
+    --paper-pad: 18px;
+    --paper-font: ui-serif, "Noto Serif KR", "NanumMyeongjo", "Apple SD Gothic Neo", system-ui, sans-serif;
+}
+
+/* 미리보기 박스 */
+.paper-preview{
+    position:relative;
+    overflow:hidden;
+    border-radius: var(--paper-radius);
+    padding: calc(var(--paper-pad) + 14px) var(--paper-pad) var(--paper-pad);
+    border:1px solid var(--paper-border);
+    box-shadow: var(--paper-shadow);
+    color: var(--paper-text);
+}
+
+/* 종이 질감 */
+.paper-preview::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.30;
+    background:
+            radial-gradient(900px 340px at 20% 8%, rgba(255,255,255,.75), transparent 60%),
+            radial-gradient(600px 280px at 90% 10%, rgba(255,255,255,.55), transparent 55%),
+            radial-gradient(520px 260px at 10% 90%, rgba(0,0,0,.05), transparent 60%);
+    mix-blend-mode: multiply;
+}
+.paper-preview::after{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border-radius: calc(var(--paper-radius) - 12px);
+    pointer-events:none;
+    border: 2px solid rgba(255,255,255,.60);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.06);
+    opacity:.95;
+}
+
+/* 헤더/뱃지 */
+.paper-head{
+    position:relative;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    margin-bottom:10px;
+    gap:12px;
+    flex-wrap:wrap;
+    z-index:1;
+}
+.paper-title{
+    font-weight:900;
+    font-size:14px;
+    letter-spacing:-.3px;
+    color: var(--paper-text);
+}
+.badge{
+    border:1px solid rgba(0,0,0,.10);
+    background:rgba(255,255,255,.65);
+    backdrop-filter: blur(6px);
+    padding:4px 8px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:12px;
+}
+
+/* 본문 */
+.paper-content{
+    position:relative;
+    margin:0;
+    white-space:pre-wrap;
+    font-family: var(--paper-font);
+    font-size: 15px;
+    line-height: 1.95;
+    z-index:1;
+    color: var(--paper-text);
+}
+
+/* 줄노트 효과 */
+.paper-lined{
+    background:
+            repeating-linear-gradient(
+                    to bottom,
+                    transparent 0px,
+                    transparent calc(var(--paper-gap) - 1px),
+                    var(--paper-line) calc(var(--paper-gap) - 1px),
+                    var(--paper-line) var(--paper-gap)
+            );
+    background-attachment: local;
+}
+
+
 
